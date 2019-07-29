@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>admin post</title>
+</head>
+<body>
+
+<h1 style="color:red">Responses</h1>
+{% for post in posts %}
+<h3 style="color:blue">{{post.postDetails}}</h3>
+{% for response in post.formdata_set.all %}
+    <h4>{{response.time}} - {{response.user}}</h4>
+{% endfor %}
+{% endfor %}
+
+
+<h1 style="color:red">Add Group Post</h1>
+
+<form action="/admin-post/" method="post">{% csrf_token %}
+    <input type="submit" value="add group post">
+</form>
+<h1 style="color:red">update group details</h1>
+
+{% for group in groups %}
+<form action="/group-update/{{group.id}}/" method="put">{% csrf_token %}
+    <input type="submit" value={{group.title}}>
+</form>
+{% endfor %}
+
+<h1 style="color:red">Add Group</h1>
+
+
+<form action="/group-add/" method="post">{% csrf_token %}
+    <input type="submit" value="add group">
+</form>
+
+<h1 style="color:red">Accept Group Requests</h1>
+{% for group in groups %}
+<h3>{{group.title}}</h3>
+{% for request in group.pendingGroupRequest.all %}
+<form method="post" action="/group-accept/{{request.id}}/{{group.id}}/">{% csrf_token %}
+    <input type="submit" value={{request.first_name}}>
+</form>
+{% endfor %}
+{% endfor %}
+
+
+
+<h1 style="color:red">accept post requests</h1>
+<h1 style="color:red">remove user from group</h1>
+{% for group in groups %}
+<h3>{{group.title}}</h3>
+{% for request in group.user.all %}
+<form method="post" action="/group-reject/{{request.id}}/{{group.id}}/">{% csrf_token %}
+    <input type="submit" value={{request.first_name}}>
+</form>
+{% endfor %}
+{% endfor %}
+<h1 style="color:red">Create Form Posts</h1>
+<form action="/create-form-post/" method="post">{% csrf_token %}
+<input type="submit" value="Create Post">
+</form>
+</body>
+</html>

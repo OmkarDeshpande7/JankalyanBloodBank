@@ -1,0 +1,34 @@
+{
+  "main": "node_modules/expo/AppEntry.js",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "eject": "expo eject"
+  },
+  "dependencies": {
+    "expo": "^32.0.0",
+    "firebase": "^5.9.1",
+    "navigation": "^5.1.0",
+    "react": "^16.5.0",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-32.0.0.tar.gz",
+    "react-native-cookies": "^3.3.0",
+    "react-native-drawer": "^2.5.1",
+    "react-native-easy-toast": "^1.1.0",
+    "react-native-elements": "^0.19.1",
+    "react-native-fit-image": "^1.5.4",
+    "react-native-image-picker": "^0.28.0",
+    "react-native-image-view": "^2.1.5",
+    "react-native-keyboard-aware-scrollview": "^2.0.0",
+    "react-native-modal-datetime-picker": "^6.0.0",
+    "react-native-modal-overlay": "^1.3.1",
+    "react-native-phone-input": "^0.2.1",
+    "react-native-radio-buttons-group": "^1.0.7",
+    "react-native-scalable-image": "^0.5.1",
+    "react-navigation": "^3.0.9"
+  },
+  "devDependencies": {
+    "babel-preset-expo": "^5.0.0"
+  },
+  "private": true
+}
